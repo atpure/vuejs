@@ -1,3 +1,5 @@
+let publicPath = process.env.NODE_ENV === 'production' ? './' : './';
+
 module.exports = {
     devServer: {
       proxy: {
@@ -11,4 +13,6 @@ module.exports = {
       }
     },
     outputDir: '../backend/public',
-  }
+  publicPath,
+  productionSourceMap: false,
+};

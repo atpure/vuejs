@@ -16,9 +16,9 @@ npm install -g express-generator
 
 express --view=pug backend
 
-cd backend 
+cd backend
 
-npm install 
+npm install
 
 npm start
 
@@ -29,29 +29,29 @@ frontend/vue.config.js
 module.exports = {
 
   devServer: {
-  
+
     proxy: {
-    
+
       '/api': {
-      
+
         target: 'http://localhost:3000/api',
-        
+
         changeOrigin: true,
-        
+
         pathRewrite: {
-        
+
           '^/api': ''
-          
+
         }
-        
+
       }
-      
+
     }
-    
+
   },
-  
+
   outputDir: '../backend/public',
-  
+
 }
 
 cd frontend
@@ -82,3 +82,8 @@ sudo npm install -g npm
 hash -d npm
 
 npm install
+
+
+### sing app demo
+
+https://flatlogic.com/templates/sing-app-vue/demo
