@@ -2,8 +2,6 @@
 
 ##### Step1. frontend (Vue.js)
 
-npm install -g yarn
-
 npm i -g @vue/cli
 
 vue create frontend
@@ -63,3 +61,24 @@ npm run build
 cd ../backend
 
 npm start
+
+## Trouble Shooting
+Versions after this:
+
+Platform: Ubuntu 18.04LTS
+
+Node version: v14.5.0
+
+npm version: 6.14.5
+
+### npm ERR! typeerror Error: Missing required argument #1
+
+sudo npm install -g n
+
+sudo n latest
+
+sudo npm install -g npm
+
+hash -d npm
+
+npm install
