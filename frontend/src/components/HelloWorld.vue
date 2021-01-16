@@ -1,15 +1,15 @@
 <template>
-  <div id="app">
+  <div id="helloworld">
     <img alt="Vue logo" src="../assets/logo.png">
     <Body msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
-import Body from '../components/Body.vue'
+import Body from './Body.vue'
 
 export default {
-  name: 'App',
+  name: 'body',
   components: {
     Body
   }
