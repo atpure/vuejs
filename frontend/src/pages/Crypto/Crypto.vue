@@ -92,11 +92,11 @@ export default {
   components: {
     Widget
   },
-    created () {
+  created () {
     this.$http.get('/api/market')
         .then((response) => {
           this.market = response.data
-        })
+        });
   },
   data () {
     return {
