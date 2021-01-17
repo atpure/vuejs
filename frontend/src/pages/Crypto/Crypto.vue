@@ -2,7 +2,7 @@
   <div class="crypto-page">
     <h1 class="page-title">Crypto</h1>
         <b-row>
-          <b-col md="6" xl="3" sm="6" xs="12">>
+          <b-col md="6" xl="3" sm="6" xs="12">
             <div class="pb-xlg h-100">
               <Widget class="h-100 mb-0">
                 <div class="d-flex flex-wrap justify-content-between">
