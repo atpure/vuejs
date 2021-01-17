@@ -6,7 +6,7 @@
         @mouseleave="sidebarMouseLeave"
     >
       <header class="logo">
-        <router-link to="/app/crypto"><span class="primary-word">Sing</span> App</router-link>
+        <router-link to="/app/crypto">Dangerous</router-link>
       </header>
       <ul class="nav">
         <NavLink
@@ -105,7 +105,15 @@
           <small>{{alert.footer}}</small>
         </b-alert>
       </div> -->
+
+    <b-nav-item>
+      <a class="d-md-down-none px-2" href="#" @click="toggleSidebarMethod" id="barsTooltip">
+        <i class='la la-chevron-right la-lg' />
+      </a>
+    </b-nav-item>
     </nav>
+
+
   </div>
 </template>
 
@@ -138,7 +146,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions('layout', ['changeSidebarActive', 'switchSidebar']),
+    ...mapActions('layout', ['changeSidebarActive', 'switchSidebar', 'toggleSidebar']),
     setActiveByRoute() {
       const paths = this.$route.fullPath.split('/');
       paths.pop();
@@ -154,6 +162,17 @@ export default {
       if (!this.sidebarStatic && (isScreen('lg') || isScreen('xl'))) {
         this.switchSidebar(true);
         this.changeSidebarActive(null);
+      }
+    },
+    toggleSidebarMethod1() {
+      if (this.sidebarStatic) {
+        this.toggleSidebar();
+        this.changeSidebarActive(null);
+      } else {
+        this.toggleSidebar();
+        const paths = this.$route.fullPath.split('/');
+        paths.pop();
+        this.changeSidebarActive(paths.join('/'));
       }
     },
   },

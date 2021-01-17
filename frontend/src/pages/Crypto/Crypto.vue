@@ -25,7 +25,7 @@
           </b-col>
           <b-col md="6" xl="3" sm="6" xs="12">
             <div class="pb-xlg h-100">
-              <Widget class="h-100 mb-0" title="총보유자산" close>
+              <Widget class="h-100 mb-0" title="자산" close>
                 <div class="d-flex justify-content-between align-items-center mb-lg">
                   <h2>48,863,800</h2>
                   <!-- <i class="la la-arrow-right text-primary la-lg rotate-315" /> -->
