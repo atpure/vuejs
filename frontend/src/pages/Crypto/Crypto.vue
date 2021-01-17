@@ -11,7 +11,7 @@
                         <th>현재가</th>
                       </tr>
                       <tr>
-                        <td>{{market[0].trade_price}}</td>
+                        <td>{{market.trade_price}}</td>
                       </tr>
                     </table>
                   </div>
@@ -21,20 +21,25 @@
                         <th>자산</th>
                       </tr>
                       <tr>
-                        <td>48,863,800</td>
+                        <td>100</td>
                       </tr>
                     </table>
                   </div>
                 </div>
                 <div class="d-flex flex-wrap justify-content-between">
                   <div class="mt">
-                    <h6>1,100</h6><p class="text-muted mb-0 mr"><small>환율</small></p>
+                    {{calculatekrw}}<p class="text-muted mb-0 mr"><small>Bittrex(₩)</small></p>
                   </div>
                   <div class="mt">
-                    <h6>47,653,640</h6><p class="text-muted mb-0"><small>Bitfinex</small></p>
+                    {{market.exchagerate}}<p class="text-muted mb-0 mr"><small>환율</small></p>
+                  </div>
+                </div>
+                <div class="d-flex flex-wrap justify-content-between">
+                  <div class="mt">
+                    {{market.ustrade_price}}<p class="text-muted mb-0 mr"><small>Bittrex</small></p>
                   </div>
                   <div class="mt">
-                    <h6>2.54%</h6><p class="text-muted mb-0 mr"><small>Premium</small></p>
+                    {{calculateExcangeRate}}%<p class="text-muted mb-0 mr"><small>Premium</small></p>
                   </div>
                 </div>
               </Widget>
@@ -54,16 +59,38 @@ export default {
   created () {
     this.$http.get('/api/market')
         .then((response) => {
-          this.market = response.data
+          if (response.data[0].trade_price)
+            this.market.trade_price = response.data[0].trade_price;
+        });
+    this.$http.get('/api/usmarket')
+        .then((response) => {
+          if (response.data.result.Last)
+            this.market.ustrade_price = response.data.result.Last;
+        });
+    this.$http.get('/api/rate')
+        .then((response) => {
+          if (response.data[0].rate)
+            this.market.exchagerate = response.data[0].rate;
         });
   },
   data () {
     return {
-      market: []
+      market: {
+        trade_price: 200,
+        ustrade_price: 300,
+        exchagerate: 1111
+      },
     }
+  },
+  computed: {
+    calculatekrw: function() {
+      return (this.market.ustrade_price * this.market.exchagerate).toFixed(0);
+    },
+    calculateExcangeRate: function() {
+      return ((this.market.trade_price - this.market.ustrade_price * this.market.exchagerate) * 100 / (this.market.ustrade_price * this.market.exchagerate)).toFixed(2);
+    },
   }
 };
-
 </script>
 
 <style src="./Crypto.scss" lang="scss" />

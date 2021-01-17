@@ -1,16 +1,16 @@
 var express = require('express');
 var router = express.Router();
 const fetch = require('node-fetch');
-let upbit_url = 'https://api.upbit.com/v1/ticker?markets=KRW-BTC';
+let usmarket_url = 'https://api.bittrex.com/api/v1.1/public/getticker?market=USD-BTC';
 
 let options = {method: 'GET', qs: {isDetails: 'false'}};
 
 router.get('/', function (req, res, next) {
-    fetch(upbit_url, options)
+    fetch(usmarket_url, options)
         .then(res => res.json())
         .then(json =>  {
             res.send(json);
-            console.log(json[0].trade_price);
+            console.log(json.result.Last);
         })
         .catch(err => console.error('error:' + err));
 
