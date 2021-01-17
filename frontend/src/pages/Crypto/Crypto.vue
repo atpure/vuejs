@@ -1,6 +1,5 @@
 <template>
   <div class="crypto-page">
-    <h1 class="page-title">Crypto</h1>
         <b-row>
           <b-col md="6" xl="3" sm="6" xs="12">
             <div class="pb-xlg h-100">
