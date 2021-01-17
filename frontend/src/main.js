@@ -13,6 +13,9 @@ import router from './Routes';
 import App from './App';
 import layoutMixin from './mixins/layout';
 import Widget from './components/Widget/Widget';
+import axios from 'axios'
+
+Vue.prototype.$http = axios;
 
 Vue.use(BootstrapVue);
 Vue.use(VueTouch);

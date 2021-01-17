@@ -13,6 +13,6 @@ module.exports = {
       }
     },
     outputDir: '../backend/public',
-  publicPath,
-  productionSourceMap: false,
+    publicPath,
+    productionSourceMap: false,
 };
