@@ -164,7 +164,7 @@ export default {
         this.changeSidebarActive(null);
       }
     },
-    toggleSidebarMethod1() {
+    toggleSidebarMethod() {
       if (this.sidebarStatic) {
         this.toggleSidebar();
         this.changeSidebarActive(null);
