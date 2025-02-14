@@ -49,7 +49,7 @@ module.exports = defineConfig({
     }
   },
   outputDir: '../backend/public',
-}
+})
 ```
 
 cd frontend
