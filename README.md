@@ -1,5 +1,13 @@
 # vuejs
 
+##### Step0. Setup
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+
+source ~/.bashrc
+
+nvm -v
+
 ##### Step1. frontend (Vue.js)
 
 npm i -g @vue/cli
@@ -12,7 +20,7 @@ npm run serve
 
 ##### Step2. backend (Express)
 
-npm install -g express-generator
+npm i -g express-generator
 
 express --view=pug backend
 
